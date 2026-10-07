@@ -1,5 +1,5 @@
 Module module() {
-  module(name: "javafx", version: 3, exports: ["Event", "ObservableList", "FXCollections", "StringProperty", "BooleanProperty", "ObservableValue", "Observable", "Parent", "Pane", "Region", "Window", "EventTarget", "Styleable", "Platform", "Node", "Stage", "Scene", "StackPane", "VBox", "HBox", "Insets", "Priority", "NodeOrientation", "Labeled", "Button", "Label", "TextArea", "TabPane", "Tab", "SingleSelectionModel", "TextField", "CheckBox", "ScrollPane", "ScrollPaneScrollBarPolicy", "Alert", "AlertAlertType", "TextInputControl", "PasswordField"],
+  module(name: "javafx", version: 3, exports: ["Event", "ObservableList", "FXCollections", "StringProperty", "BooleanProperty", "ObservableValue", "Observable", "Parent", "Pane", "Region", "Window", "EventTarget", "Styleable", "Platform", "Node", "Stage", "Scene", "StackPane", "VBox", "HBox", "Insets", "Priority", "NodeOrientation", "Labeled", "Button", "Label", "TextArea", "TabPane", "Tab", "SingleSelectionModel", "TextField", "CheckBox", "ScrollPane", "ScrollPaneScrollBarPolicy", "Alert", "AlertAlertType", "TextInputControl", "PasswordField", "Orientation"],
     dependencies: [dependency(repository: "norm", name: "java.base", version: 1)],
     binding: jarBinding(target: mavenJar(group: "org.openjfx", artifact: "javafx-controls", version: "25.0.2", resolution: sha256("f1e2ac58b6fc13433ddc3e8b99f202f2ba200ca4fd198370b4346883b8776f54")),
       api: [
@@ -40,6 +40,7 @@ Module module() {
         jarType(name: "javafx.scene.control.Alert", members: ["initOwner", "setTitle", "setHeaderText", "setContentText", "setOnHidden", "show", "close"], overloads: [jarOverload(name: "new", parameterTypes: ["javafx.scene.control.Alert$AlertType"])]),
         jarType(name: "javafx.scene.control.Alert.AlertType", members: []),
         jarType(name: "javafx.scene.control.TextInputControl", members: ["setPromptText", "getText", "setText", "textProperty"]),
-        jarType(name: "javafx.scene.control.PasswordField", members: ["setPromptText", "getText", "setText", "textProperty"], overloads: [jarOverload(name: "new", parameterTypes: [])])
+        jarType(name: "javafx.scene.control.PasswordField", members: ["setPromptText", "getText", "setText", "textProperty"], overloads: [jarOverload(name: "new", parameterTypes: [])]),
+        jarType(name: "javafx.geometry.Orientation", members: [])
       ]))
 }

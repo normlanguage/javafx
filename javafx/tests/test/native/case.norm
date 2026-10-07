@@ -10,6 +10,7 @@ import javafx.TextInputControl
 import javafx.passwordFieldNew
 import javafx.Pane
 import javafx.ObservableList
+import javafx.Orientation
 import javafx.NodeOrientation
 import javafx.buttonNew
 import javafx.stackPaneNew
@@ -28,6 +29,7 @@ Void sharesCanonicalTypesAcrossJavaFxLayersInARealWindow() {
   try {
     platformStartup(() {
       try {
+        require(condition: Orientation.HORIZONTAL != Orientation.VERTICAL, message: "layout orientation comes from canonical JavaFX geometry")
         PasswordField password = passwordFieldNew()
         TextInputControl input = password
         input.setText("secret")
