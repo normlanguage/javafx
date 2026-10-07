@@ -1,11 +1,11 @@
-# fx.controls
+# javafx
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-Module identity and dependencies: [module.norm](fx/controls/module.norm). Package toolchain: [workflow](.github/workflows/package.yml).
+The canonical JavaFX types for Norm: events, observable collections, scene graph, geometry and controls.
 
-Build: `norm package fx/controls --output build/repository`.
+[Module and binding API](javafx/module.norm) · [Package workflow](.github/workflows/package.yml) · [Collection integration](javafx/tests/test/collections/case.norm) · [Native window integration](javafx/tests/test/native/case.norm)
 
-Validated on Windows x64 with JVM execution and Native application startup. JavaFX artifacts are resolved from Maven Central; Norm packages are distributed through GitHub Releases. [Native reachability metadata](fx/controls/resources/META-INF/native-image/org.openjfx/javafx-controls/reachability-metadata.json) follows [GraalVM's format](https://www.graalvm.org/jdk25/reference-manual/native-image/metadata/).
+Build: `norm package javafx --output build/repository`.
 
-[Sample ownership](samples/README.md).
+[Native metadata](javafx/resources/META-INF/native-image/org.openjfx) · [Verify graphics shader metadata](scripts/verify-native-image-metadata.py) · [Runnable samples](samples/README.md)
