@@ -5,6 +5,9 @@ import std.concurrent.completion
 import std.core.Unit
 import std.core.Exception
 import javafx.Node
+import javafx.PasswordField
+import javafx.TextInputControl
+import javafx.passwordFieldNew
 import javafx.Pane
 import javafx.ObservableList
 import javafx.NodeOrientation
@@ -25,6 +28,10 @@ Void sharesCanonicalTypesAcrossJavaFxLayersInARealWindow() {
   try {
     platformStartup(() {
       try {
+        PasswordField password = passwordFieldNew()
+        TextInputControl input = password
+        input.setText("secret")
+        require(condition: password.getText() == "secret", message: "password control inherits canonical text input type")
         var button = buttonNew()
         button.setText("Canonical JavaFX")
         var actions = Actions()
