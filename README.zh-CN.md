@@ -1,11 +1,11 @@
-# fx.controls
+# javafx
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-模块身份和依赖见 [module.norm](fx/controls/module.norm)，发布使用的工具链见[工作流](.github/workflows/package.yml)。
+Norm 的 JavaFX 类型唯一来源，包含事件、可观察集合、场景节点、几何与控件。
 
-构建：`norm package fx/controls --output build/repository`。
+[模块与绑定 API](javafx/module.norm) · [构建工作流](.github/workflows/package.yml) · [集合真实集成测试](javafx/tests/test/collections/case.norm) · [原生窗口集成测试](javafx/tests/test/native/case.norm)
 
-已在 Windows x64 验证 JVM 执行和 Native 应用启动。JavaFX 制品从 Maven Central 解析；Norm 包通过 GitHub Releases 分发。[Native 可达性元数据](fx/controls/resources/META-INF/native-image/org.openjfx/javafx-controls/reachability-metadata.json)遵循 [GraalVM 格式](https://www.graalvm.org/jdk25/reference-manual/native-image/metadata/)。
+构建：`norm package javafx --output build/repository`。
 
-[示例归属](samples/README.zh-CN.md)。
+[原生元数据](javafx/resources/META-INF/native-image/org.openjfx) · [图形着色器元数据验证](scripts/verify-native-image-metadata.py) · [运行示例](samples/README.zh-CN.md)

@@ -1,0 +1,52 @@
+package javafx.test.native
+
+import std.testing.Test
+import std.concurrent.completion
+import std.core.Unit
+import std.core.Exception
+import javafx.Node
+import javafx.Pane
+import javafx.ObservableList
+import javafx.NodeOrientation
+import javafx.buttonNew
+import javafx.stackPaneNew
+import javafx.sceneNew
+import javafx.stageNew
+import javafx.platformStartup
+import javafx.platformExit
+import java.base.util.JavaList
+
+class Actions { Boolean fired = false }
+
+@Test
+Void sharesCanonicalTypesAcrossJavaFxLayersInARealWindow() {
+  var result = completion<Unit>()
+  var pending = result.task()
+  try {
+    platformStartup(() {
+      try {
+        var button = buttonNew()
+        button.setText("Canonical JavaFX")
+        var actions = Actions()
+        button.setOnAction((event) { event!!.consume() actions.fired = true })
+        Node node = button
+        Pane pane = stackPaneNew()
+        ObservableList<Node> observable = pane.getChildren()!!
+        JavaList<Node> collection = observable
+        collection.add(node)
+        node.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT)
+        var stage = stageNew()
+        stage.setScene(sceneNew(arg0: pane, arg1: 320.0, arg2: 180.0))
+        try {
+          stage.show()
+          button.fire()
+          require(condition: actions.fired, message: "base Event callback receives control action")
+          require(condition: collection.get(arg0: 0) == node && pane.getChildren()!!.size() == 1, message: "graphics node and base collection share canonical types")
+          require(condition: node.getNodeOrientation() == NodeOrientation.RIGHT_TO_LEFT, message: "canonical geometry applies to native control")
+          result.succeed(Unit.Value)
+        } finally { stage.close() }
+      } catch Exception failure { result.fail(failure) }
+    })
+    pending.await()
+  } finally { platformExit() result.close() }
+}

@@ -1,0 +1,21 @@
+package javafx.test.collections
+
+import std.testing.Test
+import javafx.fxCollectionsObservableArrayList
+import javafx.fxCollectionsSort
+import java.base.util.JavaList
+
+@Test
+Void sortsObservableListsThroughCanonicalCollectionInheritance() {
+  var values = fxCollectionsObservableArrayList<String>()!!
+  values.add(arg0: "beta")
+  values.add(arg0: "alpha")
+  fxCollectionsSort<String>(arg0: values, arg1: (String? left, String? right) {
+    if left == right { return 0 }
+    if left == "alpha" { return -1 }
+    return 1
+  })
+  JavaList<String> inherited = values
+  require(condition: inherited.size() == 2, message: "JavaFX list inherits canonical java.base collection")
+  require(condition: inherited.get(arg0: 0) == "alpha" && values.get(arg0: 1) == "beta", message: "Java callback sorts actual observable list")
+}
