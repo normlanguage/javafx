@@ -1,5 +1,5 @@
 Module module() {
-  module(name: "javafx", version: 3, exports: ["Event", "ObservableList", "FXCollections", "StringProperty", "BooleanProperty", "ObservableValue", "Observable", "Parent", "Pane", "Region", "Window", "EventTarget", "Styleable", "Platform", "Node", "Stage", "Scene", "StackPane", "VBox", "HBox", "Insets", "Priority", "NodeOrientation", "Labeled", "Button", "Label", "TextArea", "TabPane", "Tab", "SingleSelectionModel", "TextField", "CheckBox", "ScrollPane", "ScrollPaneScrollBarPolicy", "Alert", "AlertAlertType", "TextInputControl", "PasswordField", "Orientation"],
+  module(name: "javafx", version: 4, exports: ["Event", "ObservableList", "FXCollections", "StringProperty", "BooleanProperty", "ObservableValue", "Observable", "Parent", "Pane", "Region", "Window", "EventTarget", "Styleable", "Platform", "Node", "Stage", "Image", "Scene", "StackPane", "VBox", "HBox", "Insets", "Priority", "NodeOrientation", "Labeled", "Button", "Label", "TextArea", "TabPane", "Tab", "SingleSelectionModel", "TextField", "CheckBox", "ScrollPane", "ScrollPaneScrollBarPolicy", "Alert", "AlertAlertType", "TextInputControl", "PasswordField", "Orientation"],
     dependencies: [dependency(repository: "norm", name: "java.base", version: 1)],
     binding: jarBinding(target: mavenJar(group: "org.openjfx", artifact: "javafx-controls", version: "25.0.2", resolution: sha256("f1e2ac58b6fc13433ddc3e8b99f202f2ba200ca4fd198370b4346883b8776f54")),
       api: [
@@ -18,8 +18,9 @@ Module module() {
         jarType(name: "javafx.css.Styleable", members: []),
         jarType(name: "javafx.application.Platform", members: ["startup", "runLater", "exit", "isFxApplicationThread", "setImplicitExit"]),
         jarType(name: "javafx.scene.Node", members: ["setId", "getId", "getStyleClass", "setDisable", "requestFocus", "setStyle", "getStyle", "getLayoutX", "getLayoutY", "resize", "resizeRelocate", "prefWidth", "prefHeight", "minWidth", "minHeight", "maxWidth", "maxHeight", "applyCss", "isDisabled", "setNodeOrientation", "getNodeOrientation"]),
-        jarType(name: "javafx.stage.Stage", members: ["setTitle", "setScene", "show", "hide", "toFront", "setIconified", "close", "setOnCloseRequest", "setMinWidth", "setMinHeight"], overloads: [jarOverload(name: "new", parameterTypes: [])]),
-        jarType(name: "javafx.scene.Scene", members: ["getStylesheets"], overloads: [jarOverload(name: "new", parameterTypes: ["javafx.scene.Parent", "double", "double"])]),
+        jarType(name: "javafx.stage.Stage", members: ["setTitle", "setScene", "show", "hide", "toFront", "setIconified", "close", "setOnCloseRequest", "setMinWidth", "setMinHeight", "getIcons"], overloads: [jarOverload(name: "new", parameterTypes: [])]),
+        jarType(name: "javafx.scene.image.Image", members: ["getWidth", "getHeight", "getUrl", "isError"], overloads: [jarOverload(name: "new", parameterTypes: ["java.lang.String"])]),
+        jarType(name: "javafx.scene.Scene", members: ["getStylesheets", "getWindow"], overloads: [jarOverload(name: "new", parameterTypes: ["javafx.scene.Parent", "double", "double"])]),
         jarType(name: "javafx.scene.layout.StackPane", members: ["getChildren", "setPadding"], overloads: [jarOverload(name: "new", parameterTypes: [])]),
         jarType(name: "javafx.scene.layout.VBox", members: ["setVgrow", "getChildren"], overloads: [jarOverload(name: "new", parameterTypes: ["double"])]),
         jarType(name: "javafx.scene.layout.HBox", members: ["setHgrow", "getChildren"], overloads: [jarOverload(name: "new", parameterTypes: ["double"])]),

@@ -17,5 +17,8 @@ Void sortsObservableListsThroughCanonicalCollectionInheritance() {
   })
   JavaList<String> inherited = values
   require(condition: inherited.size() == 2, message: "JavaFX list inherits canonical java.base collection")
+  inherited.set(arg0: 0, arg1: "gamma")
+  require(condition: inherited.contains(arg0: "gamma"), message: "canonical inherited collection replaces values")
+  inherited.set(arg0: 0, arg1: "alpha")
   require(condition: inherited.get(arg0: 0) == "alpha" && values.get(arg0: 1) == "beta", message: "Java callback sorts actual observable list")
 }

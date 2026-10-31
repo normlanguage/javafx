@@ -1,3 +1,4 @@
 build/
 dependencies/
 .norm/
+/javafx/resources/META-INF/licenses/javafx/LICENSE
