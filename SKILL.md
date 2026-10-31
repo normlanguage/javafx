@@ -1,6 +1,6 @@
 # javafx Skill
 
-Use this skill to work with Norm module `javafx` version 3. Use only declarations listed below.
+Use this skill to work with Norm module `javafx` version 4. Use only declarations listed below.
 
 ## `javafx`
 
@@ -449,6 +449,70 @@ Parameters:
 - `arg1`: `Priority?`
 
 Returns: `Void`
+
+## `javafx`
+
+Source: `Image.norm`
+
+### `Image`
+
+```norm
+class Image
+```
+
+#### `Image`
+
+```norm
+Image(__JarBindingToken token)
+```
+
+Parameters:
+
+- `token`: `__JarBindingToken`
+
+#### `getHeight`
+
+```norm
+Double getHeight()
+```
+
+Returns: `Double`
+
+#### `getUrl`
+
+```norm
+String? getUrl()
+```
+
+Returns: `String?`
+
+#### `getWidth`
+
+```norm
+Double getWidth()
+```
+
+Returns: `Double`
+
+#### `isError`
+
+```norm
+Boolean isError()
+```
+
+Returns: `Boolean`
+
+### `imageNew`
+
+```norm
+Image imageNew(String? arg0)
+```
+
+Parameters:
+
+- `arg0`: `String?`
+
+Returns: `Image`
 
 ## `javafx`
 
@@ -1342,6 +1406,14 @@ ObservableList<String>? getStylesheets()
 
 Returns: `ObservableList<String>?`
 
+#### `getWindow`
+
+```norm
+Window? getWindow()
+```
+
+Returns: `Window?`
+
 ### `sceneNew`
 
 ```norm
@@ -1639,6 +1711,14 @@ Void close()
 ```
 
 Returns: `Void`
+
+#### `getIcons`
+
+```norm
+ObservableList<Image>? getIcons()
+```
+
+Returns: `ObservableList<Image>?`
 
 #### `hide`
 
